@@ -1,1 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Read articles on biodiversity, ecology, climate, species and the natural world from TBARC India.">
+<meta name="theme-color" content="#075333">
+<title>Blog Article | TBARC India</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+:root{
+  --green:#075333;--dark:#043b25;--light:#f0f6ef;--pale:#e4efe3;
+  --text:#202923;--muted:#626a63;--border:#e4ebe4;--white:#fff;
+  --page:#f7faf6;--shadow:0 10px 30px rgba(4,59,37,.07)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff;line-height:1.75}
+a{color:inherit}
+.site-header{background:#fff;border-bottom:1px solid var(--border)}
+.nav-container{max-width:1200px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand-logo{display:block;width:145px;height:36px;object-fit:contain;object-position:left center}
+.nav-link{display:inline-block;padding:9px 17px;background:var(--green);color:#fff;text-decoration:none;font-size:13px;font-weight:700;border-radius:7px}
+.nav-link:hover{background:var(--dark)}
+/* ARTICLE HERO */
+.article-hero{position:relative;isolation:isolate;color:#fff;padding:78px 24px 70px;background:linear-gradient(90deg,rgba(2,36,20,.93),rgba(4,64,35,.68)),url('images/hero.jpg') center 45%/cover no-repeat}
+.hero-inner{max-width:1120px;margin:auto}
+.category-label{display:inline-block;background:#ffffff20;border:1px solid #ffffff55;padding:6px 13px;border-radius:30px;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px}
+.article-hero h1{font-size:clamp(34px,5vw,56px);line-height:1.12;letter-spacing:-1px;max-width:850px;margin:0 0 16px}
+.hero-description{font-size:16px;color:#e2eee4;max-width:760px;margin:0 0 48px;padding-bottom:8px}
+.article-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px 22px;color:#f0f6ef;font-size:13px;margin-top:8px;padding-top:18px;border-top:0;max-width:620px}
+.meta-item{display:inline-flex;align-items:center;gap:7px}
+.icon{width:17px;height:17px;display:inline-block;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* ARTICLE BODY + NARROW SIDEBAR */
+.page-main{background:var(--page);padding:48px 22px 70px}
+.content-layout{max-width:1120px;margin:auto;display:grid;grid-template-columns:minmax(0,2.1fr) minmax(245px,.8fr);gap:30px;align-items:start}
+.article-content{min-width:0;background:#fff;border:1px solid var(--border);border-radius:16px;padding:clamp(22px,4vw,42px);box-shadow:var(--shadow)}
+.article-content p{font-size:16px;color:#424b44;margin:0 0 22px}
+.article-content h2{font-size:clamp(22px,2.5vw,29px);line-height:1.3;color:var(--dark);margin:38px 0 15px}
+.article-content h3{font-size:20px;line-height:1.35;color:var(--dark);margin:30px 0 12px}
+.article-content .article-image{margin:28px 0;overflow:hidden;border-radius:12px;background:var(--light)}
+.article-image img{display:block;width:100%;max-height:520px;object-fit:cover}
+.article-image figcaption{padding:10px 14px;font-size:12px;color:var(--muted);line-height:1.5}
+.article-content blockquote{margin:30px 0;padding:22px 24px;border-left:5px solid var(--green);background:var(--light);border-radius:0 12px 12px 0;color:#244633;font-size:19px;font-weight:600;line-height:1.6}
+.article-content blockquote cite{display:block;margin-top:10px;color:var(--muted);font-size:12px;font-style:normal;font-weight:400}
+.article-content ul,.article-content ol{padding-left:24px;margin:0 0 22px;color:#424b44}
+.article-content li{margin:7px 0}
 
+/* Author profile refinements */
+.author-card{position:relative;text-align:center;overflow:hidden}
+.author-card h2{text-align:left}
+.author-photo{position:relative;z-index:1;width:112px;height:112px;display:block;object-fit:cover;border-radius:18px!important;border:4px solid #fff;margin:0 auto;box-shadow:0 5px 16px rgba(4,59,37,.13);background:var(--pale)}
+.author-photo-wrap{position:relative;width:126px;height:126px;margin:8px auto 15px;display:grid;place-items:center;isolation:isolate}
+.author-photo-wrap:before{content:"";position:absolute;z-index:-1;top:0;right:0;width:82px;height:82px;background:#dcebdc;border-radius:20px}
+.author-photo-wrap:after{content:"";position:absolute;z-index:-1;bottom:0;left:0;width:76px;height:76px;background:#f0f6ee;border:1px solid #c8ddcb;border-radius:20px}
+.author-photo-wrap .author-photo{margin:0}
+.author-intro{text-align:center}
+.author-name{text-align:center}
+.author-designation{text-align:center}
+.author-bio{text-align:justify;text-justify:inter-word}
+.author-card .social-links{justify-content:center}
+
+/* Share article card beneath author details */
+.sidebar-share-card h2{margin-bottom:17px}
+.inline-share{display:block;padding:0;margin:0;border:0}
+.inline-share>strong{display:block;font-size:20px;line-height:1.3;color:#10271b;margin:0 0 17px}
+.inline-share-icons{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.share-icon{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;text-decoration:none;color:#fff;font:700 23px Arial,Helvetica,sans-serif;cursor:pointer;box-shadow:0 2px 5px #0001;transition:transform .18s ease,filter .18s ease}
+.share-icon:hover{transform:translateY(-2px);filter:brightness(.94)}
+.share-icon svg{width:25px;height:25px;fill:currentColor}
+.share-icon.facebook{background:#1877f2;font-size:30px}
+.share-icon.x-twitter{background:#050505;font-size:25px}
+.share-icon.linkedin{background:#0a78a8;font-size:21px}
+.share-icon.whatsapp{background:#12c765}
+.share-icon.instagram{background:linear-gradient(135deg,#833ab4,#e1306c,#f77737)}
+.share-icon.copy-icon{background:#9ca3a8}
+.share-icon.copy-icon svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.inline-share-status{display:block;font-size:12px;color:var(--green);margin-top:10px}
+/* SIDEBAR */
+.sidebar{min-width:0;display:flex;flex-direction:column;gap:18px}
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.sidebar-card h2{font-size:17px;line-height:1.35;color:var(--dark);margin:0 0 17px}
+.author-card{text-align:left}
+.author-photo{display:block;width:104px;height:104px;border-radius:50%;object-fit:cover;border:4px solid var(--light);margin:0 0 15px;background:var(--pale)}
+.author-name{font-size:19px;font-weight:800;color:var(--dark);margin:0 0 3px;line-height:1.35}
+.author-designation{font-size:12px;font-weight:700;color:var(--green);margin:0 0 12px}
+.author-bio{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 16px}
+.social-links{display:flex;flex-wrap:wrap;gap:8px}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid #dce8de;border-radius:7px;padding:7px 10px;color:#245a3b;background:#fff;font-size:12px;font-weight:700}
+.social-links a:hover{background:var(--green);border-color:var(--green);color:#fff}
+.share-list{display:grid;gap:9px}
+.share-button{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;padding:11px 12px;border:1px solid #dce8de;border-radius:8px;background:#fff;color:#245a3b;font:700 13px Arial,Helvetica,sans-serif;text-decoration:none;cursor:pointer}
+.share-button:hover{background:var(--light)}
+.share-button svg{width:17px;height:17px}
+.share-note{font-size:11px;line-height:1.5;color:var(--muted);margin:12px 0 0}
+.site-footer{background:#bfd6c5;border-top:1px solid var(--border);padding:28px 20px;text-align:center}
+.footer-brand{font-size:19px;font-weight:800;color:var(--green);margin-bottom:5px}
+.site-footer p{font-size:12px;color:var(--muted);margin:5px 0}
+.site-footer a{color:var(--green);text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+@media(max-width:820px){
+  .content-layout{grid-template-columns:minmax(0,1fr) 250px;gap:18px}
+  .sidebar-card{padding:18px}
+}
+@media(max-width:680px){
+  .article-hero{padding:58px 20px 54px}
+  .hero-description{font-size:14px;margin-bottom:36px;padding-bottom:4px}
+  .page-main{padding:25px 13px 42px}
+  .content-layout{grid-template-columns:minmax(0,1fr);gap:18px}
+  .article-content{padding:23px 19px}
+  .article-content p{font-size:15px}
+  .sidebar{display:grid;grid-template-columns:minmax(0,1fr)}
+  .author-card{display:block;text-align:center}
+  .author-card h2{text-align:left}
+  .author-photo-wrap{width:126px;height:126px;margin:8px auto 15px}
+  .author-photo{width:112px;height:112px;border-radius:18px!important}
+  .author-intro{text-align:center}
+  .author-name,.author-designation{text-align:center}
+  .author-bio{margin-top:14px;text-align:justify}
+  .author-card .social-links{justify-content:center}
+  .nav-container{padding:10px 14px}
+  .brand-logo{width:125px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-container">
+    <a class="brand" href="https://tbarc.in" aria-label="TBARC India home">
+      <img src="images/logo.png" alt="TBARC India logo" class="brand-logo">
+    </a>
+    <a class="nav-link" href="https://tbarc.in/blog/">All Articles</a>
+  </div>
+</header>
+
+<section class="article-hero">
+  <div class="hero-inner">
+    <!-- Choose one category: Process, Species, Ecosystem, Climate, or Earth -->
+    <span class="category-label" id="articleCategory">Climate</span>
+    <h1 id="articleTitle">Wetlands Store More Carbon Than Forests</h1>
+    <p class="hero-description" id="articleDescription">The Article explain what is the real contribution of wetlands.</p>
+    <div class="article-meta">
+      <span class="meta-item">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+        <time id="articleDate" datetime="2026-10-24">24 October 2026</time>
+      </span>
+      <span class="meta-item">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        <span id="heroAuthor">Unaisudheen T.P.</span>
+      </span>
+    </div>
+  </div>
+</section>
+
+<main class="page-main">
+  <div class="content-layout">
+    <article class="article-content" id="articleBody">
+            <!-- Replace these sample blocks with the article content you provide. -->
+      <p>When people think about nature helping to fight climate change, forests are usually the first thing that comes to mind. Trees absorb carbon dioxide from the atmosphere and store it in their trunks, branches, and roots. While forests are incredibly important, there is another ecosystem that is even better at storing carbon. That ecosystem is wetlands. Wetlands are among the most valuable ecosystems on Earth. They include marshes, swamps, bogs, mangroves, and peatlands. Although wetlands cover only about three percent of the world's land area, they store nearly thirty percent of the carbon found in the Earth's soil. This is about twice the amount of carbon stored in all the world's forests combined.</p>
+
+      <p>Wetlands are among the most valuable ecosystems on Earth. They include marshes, swamps, bogs, mangroves, and peatlands. Although wetlands cover only about three percent of the world's land area, they store nearly thirty percent of the carbon found in the Earth's soil. This is about twice the amount of carbon stored in all the world's forests combined..</p>
+
+      <figure class="article-image">
+        <img src="images/wetland.jpg" alt="Describe the article image" loading="lazy">
+        <figcaption>wetland the real hero.</figcaption>
+      </figure>
+
+      <blockquote>
+        Add a meaningful quotation related to the article here.
+        <cite>— Quote attribution, if applicable</cite>
+      </blockquote>
+
+      <h2>Why Are Wetlands So Good at Storing Carbon?</h2>
+      <p>One of the main reasons is the presence of peatlands. Peatlands are a special type of wetland where the soil remains wet for most of the year. In these waterlogged conditions, dead plants do not completely break down. <p>
+
+ <p>Instead of decomposing quickly, the plant material slowly builds up over thousands of years, forming a thick layer called peat. Peat is extremely rich in carbon because it stores the carbon that plants absorbed from the atmosphere during their lifetime. <p>
+
+ <p>As long as peatlands remain healthy and undisturbed, this carbon stays safely locked in the ground.</p>
+    </article>
+
+    <aside class="sidebar" aria-label="Article information and sharing">
+      <section class="sidebar-card author-card">
+        <h2>About the Author</h2>
+        <div class="author-photo-wrap">
+          <img class="author-photo" id="authorPhoto" src="images/unais.jpg" alt="Author portrait" loading="lazy">
+        </div>
+        <div class="author-intro">
+          <p class="author-name" id="authorName">Unaisudheen T.P.</p>
+          <p class="author-designation" id="authorDesignation">Senoir Research fellow</p>
+        </div>
+        <p class="author-bio" id="authorBio">Write a short biography introducing the author, their interests, work, or relevant experience.</p>
+        <div class="social-links" aria-label="Author social media links">
+          <a id="authorLinkedIn" href="https://www.linkedin.com/in/unaisudheentp/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a id="authorInstagram" href="https://www.instagram.com/unais.bot" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a id="" href="" target="_blank" rel="noopener noreferrer">Website</a>
+        </div>
+      </section>
+
+<section class="sidebar-card sidebar-share-card" aria-label="Share this article">
+        <h2>Share this article</h2>
+        <div class="inline-share-icons">
+          <a class="share-icon whatsapp" id="inlineShareWhatsApp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l6-1.6A11.8 11.8 0 0 0 23.5 11.5c0-3-1.1-5.8-3-8ZM12 21a9.5 9.5 0 0 1-4.8-1.3l-.4-.2-3.5.9.9-3.4-.2-.4A9.5 9.5 0 1 1 12 21Zm5.2-7.1c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.6-1-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5Z"/></svg>
+          </a>
+          <button class="share-icon instagram" id="inlineShareInstagram" type="button" aria-label="Copy link for Instagram" title="Copy link for Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm5 3a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2.2a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm5.1-3.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Z"/></svg>
+          </button>
+          <a class="share-icon linkedin" id="inlineShareLinkedIn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" title="Share on LinkedIn">in</a>
+          <button class="share-icon copy-icon" id="inlineCopyLink" type="button" aria-label="Copy article link" title="Copy article link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg>
+          </button>
+        </div>
+        <span class="inline-share-status" id="inlineShareStatus" aria-live="polite"></span>
+      </div>
+      </section>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">TBARC India</div>
+  <p>Tropical Biodiversity Action and Research Centre</p>
+  <p><a href="https://tbarc.in">tbarc.in</a> &nbsp; | &nbsp; <a href="mailto:tbarcindia@gmail.com">tbarcindia@gmail.com</a></p>
+  <p>© 2026 TBARC. All rights reserved.</p>
+</footer>
+
+<script>
+(function(){
+  const title = document.getElementById('articleTitle');
+  const description = document.getElementById('articleDescription');
+  const pageUrl = () => window.location.href;
+  const shareText = () => `${title.textContent.trim()} — ${description.textContent.trim()} ${pageUrl()}`;
+
+  function updateShareLinks(){
+    const rawUrl = pageUrl();
+    const url = encodeURIComponent(rawUrl);
+    const text = encodeURIComponent(shareText());
+    document.getElementById('inlineShareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    document.getElementById('inlineShareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    document.getElementById('inlineShareWhatsApp').href = `https://wa.me/?text=${text}`;
+  }
+  async function copyLink(message){
+    const shareMessage = document.getElementById('inlineShareStatus');
+    try{
+      await navigator.clipboard.writeText(pageUrl());
+      shareMessage.textContent = message;
+    }catch(error){
+      const temp = document.createElement('textarea');
+      temp.value = pageUrl();
+      temp.setAttribute('readonly','');
+      temp.style.position='absolute';temp.style.left='-9999px';
+      document.body.appendChild(temp);temp.select();
+      const copied = document.execCommand('copy');
+      temp.remove();
+      shareMessage.textContent = copied ? message : 'Please copy the article URL from your browser address bar.';
+    }
+  }
+  document.getElementById('inlineShareInstagram').addEventListener('click',async()=>{
+    await copyLink('Article link copied. You can now paste it into Instagram.');	
+    window.open('https://www.instagram.com/','_blank','noopener,noreferrer');
+  });
+  document.getElementById('inlineCopyLink').addEventListener('click',async()=>{
+    await copyLink('Article link copied.');
+
+  });
+  updateShareLinks();
+})();
+</script>
+</body>
+</html>
