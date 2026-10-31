@@ -77,6 +77,25 @@ a{color:inherit}
 .share-icon.copy-icon{background:#9ca3a8}
 .share-icon.copy-icon svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .inline-share-status{display:block;font-size:12px;color:var(--green);margin-top:10px}
+
+/* Blog submission invitation */
+.submission-card{background:linear-gradient(145deg,#f0f7ef,#fff);border:1px solid #d8e8d9}
+.submission-card h2{margin-bottom:10px}
+.submission-card p{font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 16px}
+.submission-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;background:var(--green);color:#fff;text-decoration:none;border-radius:8px;font-size:13px;font-weight:700;transition:background .2s,transform .2s}
+.submission-link:hover{background:var(--dark);transform:translateY(-1px)}
+/* Floating article sharing */
+.floating-share{position:fixed;right:22px;bottom:24px;z-index:1000;display:flex;align-items:center;gap:9px;padding:8px;background:#fff;border:1px solid #e1e9e1;border-radius:999px;box-shadow:0 8px 28px rgba(4,59,37,.2);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,visibility .25s,transform .25s}
+.floating-share.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.floating-share a,.floating-share button{width:46px;height:46px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:50%;color:#fff;cursor:pointer;text-decoration:none}
+.floating-share .floating-whatsapp{background:#12c765}
+.floating-share .floating-copy{background:#075333}
+.floating-share svg{width:23px;height:23px;fill:currentColor}
+.floating-share .floating-copy svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.floating-share-status{position:absolute;right:0;bottom:65px;white-space:nowrap;background:#043b25;color:#fff;padding:7px 11px;border-radius:7px;font-size:11px;opacity:0;pointer-events:none;transition:opacity .2s}
+.floating-share-status.show{opacity:1}
+@media(max-width:680px){.floating-share{right:14px;bottom:16px}.floating-share a,.floating-share button{width:43px;height:43px}}
+
 /* SIDEBAR */
 .sidebar{min-width:0;display:flex;flex-direction:column;gap:18px}
 .sidebar-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
@@ -316,22 +335,30 @@ a{color:inherit}
         </div>
       </section>
 
-<section class="sidebar-card sidebar-share-card" aria-label="Share this article">
-        <h2>Share this article</h2>
-        <div class="inline-share-icons">
-          <a class="share-icon whatsapp" id="inlineShareWhatsApp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l6-1.6A11.8 11.8 0 0 0 23.5 11.5c0-3-1.1-5.8-3-8ZM12 21a9.5 9.5 0 0 1-4.8-1.3l-.4-.2-3.5.9.9-3.4-.2-.4A9.5 9.5 0 1 1 12 21Zm5.2-7.1c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.6-1-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5Z"/></svg>
-          </a>
-          <button class="share-icon copy-icon" id="inlineCopyLink" type="button" aria-label="Copy article link" title="Copy article link">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg>
-          </button>
-        </div>
-        <span class="inline-share-status" id="inlineShareStatus" aria-live="polite"></span>
+      <section class="sidebar-card submission-card" aria-labelledby="submissionTitle">
+        <h2 id="submissionTitle">Share Your Voice on Our Blog</h2>
+        <p>We’re inviting short write-ups, experiences, or ideas related to ecology, sustainability, biodiversity, climate change and other environmental themes. Selected pieces will be published on our blog with due credit to the author.</p>
+        <a class="submission-link" href="https://forms.gle/sZ6sSXN3zGy7dGeK8" target="_blank" rel="noopener noreferrer">
+          Submit Your Article
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
       </section>
+
+
 
     </aside>
   </div>
 </main>
+
+<div class="floating-share" id="floatingShare" aria-label="Share this article">
+  <a class="floating-whatsapp" id="floatingWhatsApp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share article on WhatsApp" title="Share on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l6-1.6A11.8 11.8 0 0 0 23.5 11.5c0-3-1.1-5.8-3-8ZM12 21a9.5 9.5 0 0 1-4.8-1.3l-.4-.2-3.5.9.9-3.4-.2-.4A9.5 9.5 0 1 1 12 21Zm5.2-7.1c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.6-1-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5Z"/></svg>
+  </a>
+  <button class="floating-copy" id="floatingCopyLink" type="button" aria-label="Copy article link" title="Copy article link">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg>
+  </button>
+  <span class="floating-share-status" id="floatingShareStatus" role="status" aria-live="polite"></span>
+</div>
 
 <footer class="site-footer">
   <div class="footer-grid">
@@ -382,45 +409,45 @@ a{color:inherit}
   const pageUrl = () => window.location.href;
   const shareText = () => `${title.textContent.trim()} — ${pageUrl()}`;
 
-  function updateShareLinks(){
-    const url = encodeURIComponent(pageUrl());
-    const text = encodeURIComponent(shareText());
-    const facebook = document.getElementById('inlineShareFacebook');
-    const linkedIn = document.getElementById('inlineShareLinkedIn');
-    const whatsapp = document.getElementById('inlineShareWhatsApp');
-    const xTwitter = document.querySelector('.share-icon.x-twitter');
-    if (xTwitter) xTwitter.href = `https://twitter.com/intent/tweet?text=${text}`;
-    if (facebook) facebook.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    if (linkedIn) linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-    if (whatsapp) whatsapp.href = `https://wa.me/?text=${text}`;
+  const whatsapp = document.getElementById('floatingWhatsApp');
+  if (whatsapp) {
+    whatsapp.href = `https://wa.me/?text=${encodeURIComponent(shareText())}`;
   }
 
-  async function copyLink(message){
-    const status = document.getElementById('inlineShareStatus');
+  const floatingShare = document.getElementById('floatingShare');
+  function updateFloatingShare(){
+    if (!floatingShare) return;
+    floatingShare.classList.toggle('is-visible', window.scrollY > 280);
+  }
+  window.addEventListener('scroll', updateFloatingShare, {passive:true});
+  updateFloatingShare();
+
+  async function copyArticleLink(){
+    const status = document.getElementById('floatingShareStatus');
+    let copied = false;
     try {
       await navigator.clipboard.writeText(pageUrl());
-      status.textContent = message;
+      copied = true;
     } catch(error) {
       const temp = document.createElement('textarea');
       temp.value = pageUrl();
       temp.setAttribute('readonly','');
-      temp.style.position='absolute'; temp.style.left='-9999px';
-      document.body.appendChild(temp); temp.select();
-      const copied = document.execCommand('copy');
+      temp.style.position='fixed';
+      temp.style.opacity='0';
+      document.body.appendChild(temp);
+      temp.select();
+      copied = document.execCommand('copy');
       temp.remove();
-      status.textContent = copied ? message : 'Please copy the article URL from your browser address bar.';
+    }
+    if (status) {
+      status.textContent = copied ? 'Article link copied' : 'Copy the URL from your address bar';
+      status.classList.add('show');
+      window.setTimeout(() => status.classList.remove('show'), 2200);
     }
   }
 
-  const instagram = document.getElementById('inlineShareInstagram');
-  if (instagram) instagram.addEventListener('click', async () => {
-    await copyLink('Article link copied. You can now paste it into Instagram.');
-    window.open('https://www.instagram.com/','_blank','noopener,noreferrer');
-  });
-  const copyButton = document.getElementById('inlineCopyLink');
-  if (copyButton) copyButton.addEventListener('click', () => copyLink('Article link copied.'));
-
-  updateShareLinks();
+  const copyButton = document.getElementById('floatingCopyLink');
+  if (copyButton) copyButton.addEventListener('click', copyArticleLink);
 })();
 </script>
 </body>
