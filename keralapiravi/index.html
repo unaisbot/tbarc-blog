@@ -296,6 +296,8 @@ a{color:inherit}
       <h2>Happy Kerala Piravi!</h2>
       <p><strong>70 Years of Kerala – Celebrating History, Heritage and Biodiversity.</strong></p>
      
+    </article>
+
     <aside class="sidebar" aria-label="Article information and sharing">
       <section class="sidebar-card author-card">
         <h2>About the Author</h2>
@@ -317,11 +319,9 @@ a{color:inherit}
 <section class="sidebar-card sidebar-share-card" aria-label="Share this article">
         <h2>Share this article</h2>
         <div class="inline-share-icons">
-         
           <a class="share-icon whatsapp" id="inlineShareWhatsApp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp" title="Share on WhatsApp">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 2 17.7L.5 23.5l6-1.6A11.8 11.8 0 0 0 23.5 11.5c0-3-1.1-5.8-3-8ZM12 21a9.5 9.5 0 0 1-4.8-1.3l-.4-.2-3.5.9.9-3.4-.2-.4A9.5 9.5 0 1 1 12 21Zm5.2-7.1c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.7.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.6-1-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.5Z"/></svg>
           </a>
-          
           <button class="share-icon copy-icon" id="inlineCopyLink" type="button" aria-label="Copy article link" title="Copy article link">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1 0l3-3A5 5 0 0 0 13 2.9l-1.7 1.7M14 11a5 5 0 0 0-7.1 0l-3 3A5 5 0 0 0 11 21.1l1.7-1.7"/></svg>
           </button>
@@ -388,6 +388,8 @@ a{color:inherit}
     const facebook = document.getElementById('inlineShareFacebook');
     const linkedIn = document.getElementById('inlineShareLinkedIn');
     const whatsapp = document.getElementById('inlineShareWhatsApp');
+    const xTwitter = document.querySelector('.share-icon.x-twitter');
+    if (xTwitter) xTwitter.href = `https://twitter.com/intent/tweet?text=${text}`;
     if (facebook) facebook.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
     if (linkedIn) linkedIn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
     if (whatsapp) whatsapp.href = `https://wa.me/?text=${text}`;
